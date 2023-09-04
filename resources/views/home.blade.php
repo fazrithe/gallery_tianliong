@@ -37,7 +37,7 @@
               <ul class="navbar-nav flex-row align-items-center ms-auto">
                 <!-- Place this tag where you want the button to render. -->
                 <li class="nav-item lh-1 me-3">
-                    <input type="submit" class="btn btn-primary" value="Submit"></submit>
+                    <input type="submit" class="btn btn-primary" value="Submit">
                 </li>
                 <li class="nav-item lh-1 me-3">
                     <a href="#" class="btn btn-danger">Logout</a>
@@ -56,19 +56,19 @@
             <div class="container-xxl flex-grow-1 container-p-y">
                 <div class="row">
                 <div class="col-md-12">
-                  @include('menu');
+                  @include('menu')
                   <div class="card mb-4">
                     <h5 class="card-header">Gallery Produk</h5>
                     <!-- Account -->
                     <div class="card-body">
                         <div class="row">
                         @foreach($product as $value)
-                            <div class="col-3 mb-2">
+                            <div class="col-sm">
                             <div class="card" style="width: 18rem;">
                                 <img class="card-img-top" src="https://tianliong.co.id/info/assets/img/products/{{ $value->gambar }}"  onerror="this.onerror=null; this.src='{{asset('assets/img/noimage.png')}}'" alt="No Image">
                                 <div class="card-body">
-                                <h5 class="card-title">{{ $value->gambar }}</h5>
-                                <a href="#" class="btn btn-primary">View</a>
+                                <h5 class="card-title">{{ $value->nama_barang }}</h5>
+                                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modal-{{$value->id}}">View</a>
                                 </div>
                             </div>
                             </div>
@@ -102,4 +102,25 @@
         >Go to Website</a
       >
     </div>
+      <!-- Modal -->
+      @foreach($product as $value)
+      <div class="modal fade" id="modal-{{$value->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{$value->nama_barang}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <img class="card-img-top" src="https://tianliong.co.id/info/assets/img/products/{{ $value->gambar }}"  onerror="this.onerror=null; this.src='{{asset('assets/img/noimage.png')}}'" alt="No Image">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        @endforeach
 @endsection

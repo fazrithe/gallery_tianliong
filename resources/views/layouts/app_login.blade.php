@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    @include('layouts.head');
+    @include('layouts.head')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <section class="content">
@@ -10,6 +10,6 @@
     <!-- /.content -->
   </div>
 
-@include('layouts.script');
+@include('layouts.script')
 </body>
 </html>
