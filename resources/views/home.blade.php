@@ -40,7 +40,13 @@
                     <input type="submit" class="btn btn-primary" value="Submit">
                 </li>
                 <li class="nav-item lh-1 me-3">
-                    <a href="#" class="btn btn-danger">Logout</a>
+                    <a href="#" class="btn btn-danger"  href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">Logout</a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </li>
 
              </ul>
