@@ -64,9 +64,9 @@
                         <div class="row">
                         @foreach($gallery as $value)
                             <div class="col-sm-4">
-                            <div class="card">
+                            <div class="card text-center">
                                 <div class="row">
-                                    <div class="col-8">
+                                    <div class="col-6">
                                 <img class="card-img-top" src="https://tianliong.co.id/stok/public/public/uploads/gallery/img/{{ $value->path }}" alt="No Image">
                                     </div>
                                 </div>
