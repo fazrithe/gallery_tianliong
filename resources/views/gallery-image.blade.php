@@ -66,7 +66,7 @@
                             <div class="col-sm-4">
                             <div class="card">
                                 <div class="row">
-                                    <div class="col-2">
+                                    <div class="col-8">
                                 <img class="card-img-top" src="https://tianliong.co.id/stok/public/public/uploads/gallery/img/{{ $value->path }}" alt="No Image">
                                     </div>
                                 </div>
