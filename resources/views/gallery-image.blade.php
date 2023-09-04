@@ -63,7 +63,7 @@
                     <div class="card-body">
                         <div class="row">
                         @foreach($gallery as $value)
-                            <div class="col-sm">
+                            <div class="col-sm-4">
                             <div class="card">
                                 <img class="card-img-top" src="https://tianliong.co.id/stok/public/public/uploads/gallery/img/{{ $value->path }}" alt="No Image">
                                 <div class="card-body">
