@@ -62,19 +62,19 @@
                     <!-- Account -->
                     <div class="card-body">
                         <div class="row">
-                        @foreach($product as $value)
+                        @foreach($gallery as $value)
                             <div class="col-3 mb-2">
                             <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="https://tianliong.co.id/info/assets/img/products/{{ $value->gambar }}"  onerror="this.onerror=null; this.src='{{asset('assets/img/noimage.png')}}'" alt="No Image">
+
+                                <img class="card-img-top" src="http://localhost/app-stock/public/public/uploads/gallery/img/{{ $value->path }}" alt="No Image">
                                 <div class="card-body">
-                                <h5 class="card-title">{{ $value->gambar }}</h5>
+                                <h5 class="card-title">{{ $value->name }}</h5>
                                 <a href="#" class="btn btn-primary">View</a>
                                 </div>
                             </div>
                             </div>
                         @endforeach
                         </div>
-                        {{ $product->links() }}
                     </div>
                   </div>
                 </div>

@@ -26,11 +26,12 @@ use App\Http\Controllers\ImageController;
 
 Auth::routes();
 
-Route::get('/home-admin', [HomeController::class, 'index'])->name('home');
 Route::get('/', [LoginController::class, 'index'])->name('actionlogin');
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
 Route::post('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout');
 Route::group(['middleware' => ['auth']], function() {
+    Route::get('/gallery-product', [HomeController::class, 'index'])->name('gallery.product');
+    Route::get('/gallery-image', [HomeController::class, 'galleryImage'])->name('gallery.image');
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);

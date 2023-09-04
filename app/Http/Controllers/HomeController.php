@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
+use App\Models\Gallery_image;
 use App\Models\Sales_stock;
 use App\Models\User;
 
@@ -27,18 +28,22 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $auth = Auth::user()->roles->first()->name ;
-        if($auth == 'Admin' or $auth == 'Gudang'){
-            $date =  date('Y-m-d');
 
-            $product = Product::limit(10)->orderBy('created_at','desc')->get();
+            $product = Product::orderBy('created_at','desc')->paginate(12);
             return view('home', compact('product'));
-        }else{
-            $data = [
-                'login_date' => $request->session()->get('login_date'),
-                'area'  => Auth::user()->area,
-            ];
-            return view('stock.index', compact('data'));
-        }
+
+    }
+
+     /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function galleryImage(Request $request)
+    {
+
+            $gallery = Gallery_image::orderBy('created_at','desc')->paginate(12);
+            return view('gallery-image', compact('gallery'));
+
     }
 }
