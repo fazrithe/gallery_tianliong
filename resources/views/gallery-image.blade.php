@@ -65,7 +65,11 @@
                         @foreach($gallery as $value)
                             <div class="col-sm-4">
                             <div class="card">
+                                <div class="row">
+                                    <div class="col-2">
                                 <img class="card-img-top" src="https://tianliong.co.id/stok/public/public/uploads/gallery/img/{{ $value->path }}" alt="No Image">
+                                    </div>
+                                </div>
                                 <div class="card-body">
                                 <h5 class="card-title">{{ $value->name }}</h5>
                                 <a href="#" class="btn btn-primary"  data-toggle="modal" data-target="#modal-{{$value->id}}">View</a>
