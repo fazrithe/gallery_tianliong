@@ -33,6 +33,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/gallery-product', [HomeController::class, 'index'])->name('gallery.product');
     Route::get('/gallery-image', [HomeController::class, 'galleryImage'])->name('gallery.image');
     Route::get('/gallery-video', [HomeController::class, 'galleryVideo'])->name('gallery.video');
+    Route::get('/gallery-data', [HomeController::class, 'galleryData'])->name('gallery.data');
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);

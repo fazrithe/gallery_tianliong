@@ -13,7 +13,7 @@
         >
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="pages-account-settings-connections.html"
+        <a class="nav-link" href="{{route('gallery.data') }}"
           ><i class="bx bx-link-alt me-1"></i> Data Tian Liong</a
         >
       </li>
