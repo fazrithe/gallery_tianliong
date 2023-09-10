@@ -7,8 +7,8 @@
       <li class="nav-item">
         <a class="nav-link" href="{{route('gallery.product') }}"><i class="bx bx-images"></i> Gallery Produk</a>
       </li>
-      {{-- <li class="nav-item">
-        <a class="nav-link" href="#"
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('gallery.video') }}"
           ><i class="bx bx-video"></i> Video Tian Liong</a
         >
       </li>
@@ -16,5 +16,5 @@
         <a class="nav-link" href="pages-account-settings-connections.html"
           ><i class="bx bx-link-alt me-1"></i> Data Tian Liong</a
         >
-      </li> --}}
+      </li>
     </ul>

@@ -73,7 +73,7 @@
                             <div class="card text-center">
                                 <div class="row">
                                     <div class="col-6">
-                                <img class="card-img-top" src="https://tianliong.co.id/stok/public/public/uploads/gallery/img/{{ $value->path }}" alt="No Image">
+                                <img class="card-img-top" src="https://tianliong.co.id/stok/public/public/uploads/gallery/img/{{ $value->path }}" onerror="this.onerror=null; this.src='{{asset('assets/img/noimage.png')}}'" alt="No Image">
                                     </div>
                                 </div>
                                 <div class="card-body">

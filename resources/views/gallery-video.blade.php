@@ -68,19 +68,24 @@
                     <!-- Account -->
                     <div class="card-body">
                         <div class="row">
-                        @foreach($product as $value)
-                            <div class="col-sm">
-                            <div class="card text-center" style="width: 18rem;">
-                                <img class="card-img-top" src="https://tianliong.co.id/info/assets/img/products/{{ $value->gambar }}"  onerror="this.onerror=null; this.src='{{asset('assets/img/noimage.png')}}'" alt="No Image">
+                        @foreach($gallery as $value)
+                            <div class="col-sm-4">
+                            <div class="card text-center">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <video width="400" controls="controls" preload="metadata">
+                                            <source src="https://tianliong.co.id/stok/public/public/uploads/gallery/video/{{ $value->path }}" type="video/mp4">
+                                          </video>
+                                    </div>
+                                </div>
                                 <div class="card-body">
-                                <h5 class="card-title">{{ $value->nama_barang }}</h5>
-                                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modal-{{$value->id}}">View</a>
+                                <h5 class="card-title">{{ $value->name }}</h5>
+                                <a href="#" class="btn btn-primary"  data-toggle="modal" data-target="#modal-{{$value->id}}">View</a>
                                 </div>
                             </div>
                             </div>
                         @endforeach
                         </div>
-                        {{ $product->links() }}
                     </div>
                   </div>
                 </div>
@@ -108,25 +113,28 @@
         >Go to Website</a
       >
     </div>
-      <!-- Modal -->
-      @foreach($product as $value)
-      <div class="modal fade" id="modal-{{$value->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{$value->nama_barang}}</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                  <img class="card-img-top" src="https://tianliong.co.id/info/assets/img/products/{{ $value->gambar }}"  onerror="this.onerror=null; this.src='{{asset('assets/img/noimage.png')}}'" alt="No Image">
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
+
+    <!-- Modal -->
+    @foreach($gallery as $value)
+<div class="modal fade" id="modal-{{$value->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{$value->name}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-        @endforeach
+        <div class="modal-body">
+            <video width="510" controls="controls" preload="metadata">
+                <source src="https://tianliong.co.id/stok/public/public/uploads/gallery/video/{{ $value->path }}" type="video/mp4">
+              </video>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endforeach
 @endsection
