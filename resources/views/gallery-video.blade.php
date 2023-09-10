@@ -107,7 +107,7 @@
 
     <div class="buy-now">
       <a
-        href="#"
+        href="https://tianliong.co.id/"
         target="_blank"
         class="btn btn-danger btn-buy-now"
         >Go to Website</a

@@ -111,7 +111,7 @@ href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css"
 
     <div class="buy-now">
       <a
-        href="#"
+        href="https://tianliong.co.id/"
         target="_blank"
         class="btn btn-danger btn-buy-now"
         >Go to Website</a
