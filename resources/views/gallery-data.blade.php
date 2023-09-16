@@ -69,6 +69,11 @@ href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css"
                   @include('menu')
                   <div class="card mb-4">
                     <h5 class="card-header">Data Tian Liong</h5>
+                    <div class="row card-header">
+                        @foreach($category as $value)
+                        <div class="col-sm-3"><a href="{{ URL::to('gallery-data/'.$value->id) }}">{{ $value->name }}</a></div>
+                        @endforeach
+                    </div>
                     <!-- Account -->
                     <div class="card-body">
                         <table

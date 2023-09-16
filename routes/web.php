@@ -34,6 +34,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/gallery-image', [HomeController::class, 'galleryImage'])->name('gallery.image');
     Route::get('/gallery-video', [HomeController::class, 'galleryVideo'])->name('gallery.video');
     Route::get('/gallery-data', [HomeController::class, 'galleryData'])->name('gallery.data');
+    Route::get('/gallery-image/{id}', [HomeController::class, 'galleryImageId']);
+    Route::get('/gallery-video/{id}', [HomeController::class, 'galleryVideoId']);
+    Route::get('/gallery-data/{id}', [HomeController::class, 'galleryDataId']);
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);

@@ -64,7 +64,12 @@
                 <div class="col-md-12">
                   @include('menu')
                   <div class="card mb-4">
-                    <h5 class="card-header">Gallery Produk</h5>
+                    <h5 class="card-header">Gallery Tian Liong</h5>
+                    <div class="row card-header">
+                        @foreach($category as $value)
+                        <div class="col-sm-3"><a href="{{ URL::to('gallery-image/'.$value->id) }}">{{ $value->name }}</a></div>
+                        @endforeach
+                    </div>
                     <!-- Account -->
                     <div class="card-body">
                         <div class="row">
