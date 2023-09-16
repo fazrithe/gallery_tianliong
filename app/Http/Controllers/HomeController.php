@@ -114,4 +114,20 @@ class HomeController extends Controller
             return view('gallery-data', compact('gallery','category'));
 
     }
+
+     /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function gallerySearch(Request $request)
+    {
+        $category   = Gallery_category::where('type','image')->get();
+        $gallery_video = Gallery_video::where('name','like','%'.$request['search'].'%')->orderBy('created_at','desc')->paginate(12);
+        $gallery_image = Gallery_image::where('name','like','%'.$request['search'].'%')->orderBy('created_at','desc')->paginate(12);
+        $gallery_data = Gallery_data::where('name','like','%'.$request['search'].'%')->orderBy('created_at','desc')->paginate(12);
+        return view('gallery-search', compact('gallery_video','gallery_image','gallery_data','category'));
+
+    }
+
 }
