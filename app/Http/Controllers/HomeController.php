@@ -31,9 +31,9 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-
+            $category = Product::select('merk')->groupBy('merk')->get('');
             $product = Product::orderBy('created_at','desc')->paginate(12);
-            return view('home', compact('product'));
+            return view('home', compact('product','category'));
 
     }
 
@@ -112,6 +112,20 @@ class HomeController extends Controller
             $category   = Gallery_category::where('type','image')->get();
             $gallery = Gallery_data::where('category_id',$id)->orderBy('created_at','desc')->paginate(12);
             return view('gallery-data', compact('gallery','category'));
+
+    }
+
+       /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function galleryProductId($id)
+    {
+        $category = Product::select('merk')->groupBy('merk')->get('');
+        $product = Product::where('merk',$id)->orderBy('created_at','desc')->paginate(12);
+        return view('home', compact('product','category'));
+
 
     }
 

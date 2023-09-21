@@ -24,6 +24,16 @@
                   <div class="card mb-4">
                     <h5 class="card-header">Gallery Produk</h5>
                     <!-- Account -->
+                    <div class="row card-header">
+                        <div class="col-sm-3">
+                            <select class="form-control" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                                <option>--category--</option>
+                                @foreach($category as $value)
+                                    <option value="{{url('gallery-product')}}/{{ $value->merk }}">{{ $value->merk }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                     <div class="card-body">
                         <div class="row">
                         @foreach($product as $value)
