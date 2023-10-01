@@ -37,6 +37,26 @@ class HomeController extends Controller
 
     }
 
+
+    public function getCateogryProduct(Request $request){
+        $search = $request->search;
+
+      if($search == ''){
+         $employees = Product::orderby('nama_barang','asc')->select('id','nama_barang')->limit(5)->get();
+      }else{
+         $employees = Product::orderby('nama_barang','asc')->select('id','nama_barang')->where('merk', 'like', '%' .$search . '%')->limit(5)->get();
+      }
+
+      $response = array();
+      foreach($employees as $employee){
+         $response[] = array(
+              "id"=>$employee->id,
+              "text"=>$employee->name
+         );
+      }
+      return response()->json($response);
+    }
+
      /**
      * Show the application dashboard.
      *

@@ -39,6 +39,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/gallery-data/{id}', [HomeController::class, 'galleryDataId']);
     Route::get('/gallery-product/{id}', [HomeController::class, 'galleryProductId']);
     Route::post('/gallery/search', [HomeController::class, 'gallerySearch'])->name('gallery.search');
+    Route::get('/gallery/product/search', [HomeController::class, 'getCateogryProduct'])->name('gallery.product.search');
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
